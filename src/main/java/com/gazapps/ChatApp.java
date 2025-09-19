@@ -36,6 +36,6 @@ public class ChatApp {
             throw new RuntimeException("No LLM API key found. Set GROQ_API_KEY or GEMINI_API_KEY environment variable.");
         }
         
-        return LLMClientFactory.createGeminiClient(geminiKey);
+        return LLMClientFactory.createGroqClient(groqKey);
     }
 }

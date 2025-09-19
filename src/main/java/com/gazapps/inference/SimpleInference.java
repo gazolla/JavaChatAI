@@ -196,7 +196,7 @@ public class SimpleInference {
 	        1. Analyze the query's syntactic structure (e.g., identify key verbs, nouns, entities, and sentence patterns).
 	        2. Determine the semantic intent (e.g., what the user wants to achieve, such as getting the time, day, weather, or performing a file operation).
 	        3. Classify the query into one of:
-	           - DIRECT_ANSWER: if the query can be answered using general knowledge.
+	           - DIRECT_ANSWER: Use for informational, broad, or general knowledge queries that don’t require specific tool actions (e.g., asking about a city, concept, or fact).
 	           - SINGLE_TOOL: if one tool is sufficient, specify the tool and extract its parameters.
 	           - MULTI_TOOL: if multiple tools are required.
 	        4. For SINGLE_TOOL:

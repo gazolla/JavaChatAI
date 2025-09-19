@@ -127,7 +127,7 @@ You: exit
  Goodbye!
 ```
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 src/main/java/com/gazapps/
@@ -154,7 +154,7 @@ src/main/java/com/gazapps/
 └── ChatApp.java           # Main application entry point
 ```
 
-## 🔧 Dependencies
+## Dependencies
 
 ### Java Libraries (pom.xml)
 
@@ -196,7 +196,7 @@ src/main/java/com/gazapps/
 | **Groq** | Llama 3.3 70B | Very Fast | Free tier | 
 | **Gemini** | Gemini 1.5 Flash | Fast | Free tier | 
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -225,7 +225,7 @@ echo $GEMINI_API_KEY
 - Update JAVA_HOME and PATH
 
 
-##  Advanced Usage
+## Advanced Usage
 
 ### Adding New MCP Servers
 
@@ -252,7 +252,7 @@ public class CustomLLMClient extends BaseLLMClient {
 }
 ```
 
-## 📖 Learning Resources
+## Learning Resources
 
 ### Blog Series
 -  [Full series on dev.to/gazolla](https://dev.to/gazolla)
@@ -273,7 +273,7 @@ This project serves as a reference implementation for the blog series. Feel free
 -  Submit pull requests
 -  Enhance documentation
 
-## 📄 License
+## License
 
 This project is provided as educational material accompanying the blog series. Feel free to use, modify, and learn from the code.
 
