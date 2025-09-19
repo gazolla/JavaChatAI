@@ -4,9 +4,9 @@
 
 This project demonstrates how to build a fully functional Java AI agent that can understand natural language, select appropriate tools, and execute actions through the Model Context Protocol (MCP). It's the practical implementation of concepts covered in the blog series published on [dev.to/gazolla](https://dev.to/gazolla).
 
-## 🎯 Project Overview
+## Project Overview
 
-PostChatAI is a conversational AI assistant built in Java that combines: LLm + MCP + Query Processing
+JavaChatAI is a conversational AI assistant built in Java that combines: LLm + MCP + Query Processing
 
 This codebase implements concepts from these blog posts:
 
@@ -20,7 +20,7 @@ This codebase implements concepts from these blog posts:
 | **Post 6** | Chat Interface | `com.gazapps.ui.*` - Conversational interface |
 | **Post 7** | Error Handling | Integrated throughout all components |
 
-## 🏗 Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -45,7 +45,7 @@ This codebase implements concepts from these blog posts:
 └───────────────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -100,7 +100,7 @@ mvn exec:java -Dexec.mainClass="com.gazapps.ChatApp"
 mvn exec:java -Dexec.mainClass="com.gazapps.App"
 ```
 
-## 🎮 Usage Examples
+## Usage Examples
 
 ### Interactive Chat Session
 
@@ -124,7 +124,7 @@ You: List files in documents
 🤖 I found 5 files in /documents: weather-report.txt, config.json, notes.md, and 2 others.
 
 You: exit
-👋 Goodbye!
+ Goodbye!
 ```
 
 ## 📦 Project Structure
