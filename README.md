@@ -39,7 +39,7 @@ This codebase implements concepts from these blog posts:
 └─────────────┬─────────────┘   └──────────────────────┘
               │
 ┌─────────────▼─────────────┐
-│     Real MCP Servers      │
+│      MCP Servers          │
 │  (weather, filesystem,    │
 │      time, etc.)          │
 └───────────────────────────┘
