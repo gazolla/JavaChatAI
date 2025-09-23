@@ -1,0 +1,17 @@
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\ChatApp.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\MultiToolOrchestrator.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\MultiToolPlan.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\PlanType.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\QueryAnalysis.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\SimpleInference.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\inference\Step.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\llm\BaseLLMClient.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\llm\GeminiClient.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\llm\GroqClient.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\llm\LLMClient.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\llm\LLMClientFactory.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\mcp\MCPService.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\mcp\Server.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\mcp\Tool.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\mcp\ToolResult.java
+C:\Users\gazol\AppData\MCP\WRKGRP\JavaChatAI\src\main\java\com\gazapps\ui\ChatInterface.java

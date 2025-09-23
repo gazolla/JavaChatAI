@@ -31,7 +31,6 @@ public class MCPService {
     }
     
     private void initializeServers() {
-        // Hardcoded servers for learning - in production, load from config
         connectToWeatherServer();
         connectToFilesystemServer();
         connectToTimeServer();
@@ -117,9 +116,7 @@ public class MCPService {
             McpSyncClient client = McpClient.sync(transport)
                 .requestTimeout(Duration.ofSeconds(15))
                 .build();
-            
-            // Initialize MCP protocol
-            client.initialize();
+           client.initialize();
             
             return client;
             
@@ -361,6 +358,49 @@ public class MCPService {
         
         servers.clear();
         clients.clear();
+    }
+    
+     public boolean validateToolCall(String serverId, String toolName, Map<String, Object> args) {
+        Server server = servers.get(serverId);
+        if (server == null || !server.isConnected()) {
+            return false;
+        }
+        
+        Tool tool = server.getTool(toolName);
+        if (tool == null) {
+            return false;
+        }
+        
+        return validateParameters(tool, args);
+    }
+    
+    @SuppressWarnings("unchecked")
+    private boolean validateParameters(Tool tool, Map<String, Object> args) {
+        Map<String, Object> schema = tool.inputSchema();
+        List<String> requiredParams = (List<String>) schema.getOrDefault("required", Collections.emptyList());
+        Map<String, Object> properties = (Map<String, Object>) schema.getOrDefault("properties", Collections.emptyMap());
+        
+        // Check required parameters
+        for (String param : requiredParams) {
+            if (!args.containsKey(param)) {
+                return false;
+            }
+        }
+        
+        for (Map.Entry<String, Object> entry : args.entrySet()) {
+            String paramName = entry.getKey();
+            Object paramValue = entry.getValue();
+            Map<String, Object> paramSchema = (Map<String, Object>) properties.get(paramName);
+            
+            if (paramSchema != null) {
+                String expectedType = (String) paramSchema.get("type");
+                if (expectedType != null && !isValidType(paramValue, expectedType)) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
     }
     
     private void disconnectServer(String serverId) {

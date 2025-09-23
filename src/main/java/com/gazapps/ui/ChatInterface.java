@@ -2,6 +2,7 @@ package com.gazapps.ui;
 
 import java.util.Scanner;
 
+import com.gazapps.inference.MultiToolOrchestrator;
 import com.gazapps.inference.SimpleInference;
 import com.gazapps.llm.LLMClient;
 import com.gazapps.mcp.MCPService;
@@ -12,14 +13,21 @@ import java.util.List;
 import java.util.Map;
 
 public class ChatInterface {
-    private final SimpleInference inference; // From Posts 5-6
-    private final MCPService mcpService;     // From Post 3
+    private final SimpleInference inference; 
+    private final MCPService mcpService;     
     private final Scanner scanner;
     private boolean running = true;
     
     public ChatInterface(MCPService mcpService, LLMClient llmClient) {
         this.mcpService = mcpService;
         this.inference = new SimpleInference(mcpService, llmClient);
+        this.scanner = new Scanner(System.in);
+    }
+    
+    public ChatInterface(MCPService mcpService, LLMClient llmClient, MultiToolOrchestrator orchestrator) {
+        this.mcpService = mcpService;
+        this.inference = new SimpleInference(mcpService, llmClient);
+        this.inference.setOrchestrator(orchestrator); 
         this.scanner = new Scanner(System.in);
     }
     
@@ -53,9 +61,8 @@ public class ChatInterface {
             System.out.printf("✅ Connected to %d servers with %d tools.%n", servers.size(), tools.size());
         }
         
-        // Quick LLM health check
         try {
-            inference.processQuery("Hi"); // Simple test
+            inference.processQuery("Hi"); 
             System.out.println("✅ AI service is working.");
         } catch (Exception e) {
             System.out.println("⚠️ AI service may be slow - responses might be delayed.");
@@ -68,18 +75,15 @@ public class ChatInterface {
         System.out.print("You: ");
         String input = scanner.nextLine().trim();
         
-        // Handle empty input
         if (input.isEmpty()) {
             return "";
         }
         
-        // Basic input validation - keep messages reasonable length
         if (input.length() > 500) {
             System.out.println("🤖 Please keep your message shorter than 500 characters.\n");
             return "";
         }
         
-        // Remove control characters that might cause issues
         input = input.replaceAll("[\\p{Cntrl}&&[^\r\n\t]]", "");
         
         return input;

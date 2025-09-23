@@ -1,5 +1,6 @@
 package com.gazapps;
 
+import com.gazapps.inference.MultiToolOrchestrator;
 import com.gazapps.llm.LLMClient;
 import com.gazapps.llm.LLMClientFactory;
 import com.gazapps.mcp.MCPService;
@@ -10,12 +11,12 @@ public class ChatApp {
         try {
             System.out.println("Starting AI Chat Assistant...");
             
-            // Initialize core components (from previous posts)
             MCPService mcpService = new MCPService();
             LLMClient llmClient = createLLMClient();
             
-            // Start the chat interface
-            ChatInterface chat = new ChatInterface(mcpService, llmClient);
+            MultiToolOrchestrator orchestrator = new MultiToolOrchestrator(llmClient, mcpService);
+            
+            ChatInterface chat = new ChatInterface(mcpService, llmClient, orchestrator);
             chat.startChat();
             
         } catch (Exception e) {
