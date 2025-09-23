@@ -30,7 +30,6 @@ public class Server {
         return tools.size();
     }
     
-    // Getters using record-style naming
     public String id() { return id; }
     public String name() { return name; }
     public boolean isConnected() { return connected; }

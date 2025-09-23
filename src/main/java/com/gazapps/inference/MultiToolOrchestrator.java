@@ -256,7 +256,6 @@ public class MultiToolOrchestrator {
                 String replacement = extractField(stepResult, field);
                 matcher.appendReplacement(resolved, Matcher.quoteReplacement(replacement));
             } else {
-                // Keep variable if not resolved
                 matcher.appendReplacement(resolved, matcher.group(0));
             }
         }

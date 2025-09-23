@@ -409,28 +409,20 @@ public class SimpleInference {
         }
     }
     
-    /**
-     * Set the multi-tool orchestrator (dependency injection).
-     */
     public void setOrchestrator(MultiToolOrchestrator orchestrator) {
         this.orchestrator = orchestrator;
     }
     
-    /**
-     * Execute multi-tool query using specialized analysis and orchestration.
-     */
-    private String executeMultiTool(QueryAnalysis analysis, String originalQuery) throws Exception {
+     private String executeMultiTool(QueryAnalysis analysis, String originalQuery) throws Exception {
         if (orchestrator == null) {
             return "Multi-tool execution not available - orchestrator not configured";
         }
         
         MultiToolPlan plan;
         
-        // Check if plan is already in the analysis
         if (analysis.isMultiTool() && analysis.getMultiToolPlan().isPresent()) {
             plan = analysis.getMultiToolPlan().get();
         } else {
-            // Analyze query with specialized multi-tool prompt
             plan = analyzeMultiToolQuery(originalQuery, analysis.details());
         }
         
@@ -438,22 +430,16 @@ public class SimpleInference {
             return "Could not create valid execution plan for this query.";
         }
         
-        // Execute the plan
-        ToolResult result = orchestrator.executePlan(plan);
+         ToolResult result = orchestrator.executePlan(plan);
         
         if (result.success()) {
             return generateToolResponse(originalQuery, "multi-tool plan", result.content());
         } else {
-            // Fallback to direct answer if multi-tool execution fails
             String fallbackPrompt = PromptTemplates.getFallbackPrompt(originalQuery);
             return llmClient.send(fallbackPrompt);
         }
     }
     
-    /**
-     * Analyze query with specialized multi-tool planning prompt.
-     * @param analysis 
-     */
     private MultiToolPlan analyzeMultiToolQuery(String query, String analysis) throws Exception {
         List<Tool> availableTools = mcpService.getAllAvailableTools();
         String toolList = formatToolsForPrompt(availableTools);

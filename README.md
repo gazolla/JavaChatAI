@@ -18,7 +18,7 @@ This codebase implements concepts from these blog posts:
 | **Post 4** | LLM HTTP Clients | `com.gazapps.llm.*` - Groq & Gemini clients |
 | **Post 5** | Query Processing | `com.gazapps.inference.*` - LLM-powered analysis |
 | **Post 6** | Chat Interface | `com.gazapps.ui.*` - Conversational interface |
-| **Post 7** | Error Handling | Integrated throughout all components |
+| **Post 7** | Multi Tool  | multiple tools working together |
 
 ## Architecture
 

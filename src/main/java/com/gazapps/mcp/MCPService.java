@@ -96,7 +96,6 @@ public class MCPService {
     
     private McpSyncClient createClient(String serverId, String[] command) {
         try {
-            // Handle Windows vs Unix commands
             String[] fullCommand;
             if (System.getProperty("os.name").toLowerCase().contains("win")) {
                 fullCommand = new String[command.length + 2];
